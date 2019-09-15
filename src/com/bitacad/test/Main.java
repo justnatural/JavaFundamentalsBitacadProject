@@ -10,6 +10,8 @@ import java.time.LocalDate;
 public class Main {
     public static void main(String[] args) {
         Biblioteca biblioteca = getBibliotecaPopulata();
+/*
+
         //Caz1
         biblioteca.catalogPublicatii();
         biblioteca.imprumutaPublicatie(3, LocalDate.of(2017, 12, 20));
@@ -18,6 +20,7 @@ public class Main {
         biblioteca.imprumutaPublicatie(3, LocalDate.of(2017, 12, 20));
         biblioteca.publicatiiImprumutate();
         biblioteca.returneazaPublicatie(4, LocalDate.of(2018, 1, 3));
+
         //Caz3
         LocalDate data = LocalDate.of(2017, 11, 1);
         biblioteca.imprumutaPublicatie(1, data);
@@ -25,7 +28,14 @@ public class Main {
         biblioteca.imprumutaPublicatie(3, data);
         biblioteca.imprumutaPublicatie(4, data);
         biblioteca.imprumutaPublicatie(5, data);
+        biblioteca.imprumutaPublicatie(10, data);
         biblioteca.publicatiiDisponibile();
+*/
+
+        //Caz4
+        biblioteca.imprumutaPublicatie(3, LocalDate.of(2017, 12, 1));
+        biblioteca.publicatiiImprumutate();
+        biblioteca.returneazaPublicatie(3, LocalDate.of(2018, 2, 2));
 
     }
 

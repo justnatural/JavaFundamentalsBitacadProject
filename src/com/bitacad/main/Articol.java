@@ -1,6 +1,7 @@
 package com.bitacad.main;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Articol extends Publicatie {
     public static int TERMEN_IMPRUMUT =2;
@@ -23,6 +24,10 @@ public class Articol extends Publicatie {
 //        sb.append("publicatie : ").append(this.publicatie).append("\n");
 //        sb.append("dataPublicatiei : ").append(this.dataPublicatiei).append("\n");
 //        return sb.toString();
-        return getId()+". " + autor + " " + titlu + " " + dataPublicatiei;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.YYYY");
+        String dataPublicatieiFormatata = formatter.format(dataPublicatiei);
+
+
+        return getId()+". " + autor + " " + titlu +  " " + publicatie + " " + dataPublicatieiFormatata  ;
     }
 }

@@ -1,5 +1,8 @@
 package com.bitacad.main;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 public class Carte extends Publicatie {
     public static int TERMEN_IMPRUMUT =4;
     public static double PENALIZARE =0.5;
@@ -18,6 +21,11 @@ public class Carte extends Publicatie {
 //        sb.append("PENALIZARE : ").append(this.PENALIZARE).append("\n");
 //        sb.append("anPublicatie : ").append(this.anPublicatie).append("\n");
 //        return sb.toString();
-        return getId()+". " + autor + " " + titlu + " " + anPublicatie;
+        /*
+        String anPublicatieString = Integer.toString(anPublicatie);
+        LocalDate anPublicatieFormatat = LocalDate.parse(anPublicatieString,
+                DateTimeFormatter.ofPattern("yyyy/MM/dd"));
+        */
+        return getId()+". " + autor + " " + titlu + " " + anPublicatie + " " + categorie ;
     }
 }

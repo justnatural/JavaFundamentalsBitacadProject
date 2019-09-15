@@ -20,7 +20,7 @@ public class Publicatie extends Item implements Imprumutabil {
             this.dataImprumut = dataImprumut;
 
         } else {
-            throw new Exception("Publicatia "+ getId() +"nu se poate imprumuta pentru este deja imprumutata!");
+            throw new Exception("Publicatia "+ getId() +" nu se poate imprumuta pentru este deja imprumutata!");
         }
     }
 

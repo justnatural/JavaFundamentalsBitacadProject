@@ -11,10 +11,11 @@ public class Biblioteca {
     private List<Publicatie> publicatiiDisponibile = new ArrayList<>();
     private List<Media> media  = new ArrayList<>();
 
+
     public void adaugaPublicatie(Publicatie publicatie) {
         publicatie.setId(idPublicatie++);
         this.publicatii.add(publicatie);
-
+        this.publicatiiDisponibile.add(publicatie);
     }
 
     public void adaugaMedia(Media media) {
@@ -31,23 +32,10 @@ public class Biblioteca {
     }
 
     public void publicatiiDisponibile() {
-        publicatiiDisponibile.addAll(publicatii);
-
         System.out.println("Publicatii disponibile: ");
-        System.out.println(publicatiiDisponibile);
-
-        for (int i =0 ; i< publicatiiDisponibile.size(); i++) {
-            for  (int j =0 ; j< publicatiiImprumutate.size(); j++) {
-                if (publicatiiDisponibile.get(i).getTitlu() == publicatiiImprumutate.get(j).getTitlu()) {
-                    System.out.println("compar " + publicatiiDisponibile.get(i).getId()+publicatiiDisponibile.get(i).getTitlu() + " cu "+  publicatiiImprumutate.get(j).getId() + publicatiiImprumutate.get(j).getTitlu());
-                    publicatiiDisponibile.remove(publicatiiDisponibile.get(i));
-
-                }
-            }
-
+        for (Publicatie publicatie: publicatiiDisponibile) {
+            System.out.println(publicatie);
         }
-        System.out.println(publicatiiDisponibile);
-
 
     }
 
@@ -66,20 +54,26 @@ public class Biblioteca {
     }
 
     public void imprumutaPublicatie(int id, LocalDate dataImprumut) {
-
+        boolean idExists = false;
         for (Publicatie publicatie: publicatii) {
-            if (id == publicatie.getId()) {
+
+            if (id == publicatie.getId() ) {
                 try {
                     publicatie.imprumuta(dataImprumut);
                     publicatiiImprumutate.add(publicatie); // se adauga publicatia imprumutata in lista de publicatii imprumutate
+                    publicatiiDisponibile.remove(publicatie); // se scoate publicatia imprumutata din lista de publicatii disponibile
                     System.out.println("Publicatia "+ id + " a fost imprumutata la data de " + dataImprumut);
+                    idExists = true;
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
+                    idExists = true;
                 }
-
             }
-           // System.out.println(publicatie);
         }
+        if (idExists == false) {
+            System.out.println("Publicatia " + id + " nu a fost gasita in evidentele bibliotecii");
+        }
+
     }
 
     public void returneazaPublicatie(int id, LocalDate dataRetur) {
@@ -92,9 +86,7 @@ public class Biblioteca {
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
-
             }
-            // System.out.println(publicatie);
         }
     }
 
