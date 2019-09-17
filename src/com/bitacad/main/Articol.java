@@ -30,4 +30,16 @@ public class Articol extends Publicatie {
 
         return getId()+". " + autor + " " + titlu +  " " + publicatie + " " + dataPublicatieiFormatata  ;
     }
+
+    @Override
+    public int getTermenImprumut() {
+        return TERMEN_IMPRUMUT;
+    }
+
+    @Override
+    public double getPenalizare() {
+        return PENALIZARE;
+    }
+
+
 }

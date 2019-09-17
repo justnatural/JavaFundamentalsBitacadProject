@@ -1,10 +1,11 @@
 package com.bitacad.main;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Publicatie extends Item implements Imprumutabil {
+public abstract class Publicatie extends Item implements Imprumutabil {
 
     protected String autor;
     protected String titlu;
@@ -29,6 +30,13 @@ public class Publicatie extends Item implements Imprumutabil {
         if (disponibil==false) {
             disponibil=true;
             this.dataRetur = dataRetur;
+            //dataImprumut+ TERMEN_IMPRUMUTsăptămâni < dataRetur
+            if(ChronoUnit.DAYS.between(dataImprumut, dataRetur) > (getTermenImprumut()*7)) {
+                System.out.println("Termen de returnare depășit cu "+(ChronoUnit.DAYS.between(dataImprumut, dataRetur) - (getTermenImprumut()*7))+ " zile pentru publicatia " +getId());
+                //Penalizare  X  lei”în cazul în care termenul a fost depășit ;  numărul de zile după termenul de împrumut * PENALIZARE
+                System.out.println("Penalizare "+ (ChronoUnit.DAYS.between(dataImprumut, dataRetur) - (getTermenImprumut()*7)) * getPenalizare() +" lei");
+            }
+
         } else {
             throw new Exception("Nu se poate returna publicatia cu id-ul "+ getId() +" pentru ca nu a fost imprumutata!");
         }
@@ -56,6 +64,12 @@ public class Publicatie extends Item implements Imprumutabil {
     public String getCategorie() {
         return categorie;
     }
+
+    protected abstract int getTermenImprumut() ;
+
+    protected abstract double getPenalizare() ;
+
+
 
 
 

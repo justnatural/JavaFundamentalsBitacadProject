@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class Carte extends Publicatie {
+
+
     public static int TERMEN_IMPRUMUT =4;
     public static double PENALIZARE =0.5;
     protected int anPublicatie;
@@ -13,7 +15,10 @@ public class Carte extends Publicatie {
         this.titlu = titlu;
         this.anPublicatie = anPublicatie;
         this.categorie=categorie;
+
     }
+
+
 
     public String toString() {
 //        StringBuilder sb = new StringBuilder();
@@ -28,4 +33,15 @@ public class Carte extends Publicatie {
         */
         return getId()+". " + autor + " " + titlu + " " + anPublicatie + " " + categorie ;
     }
+
+    @Override
+    public int getTermenImprumut() {
+        return TERMEN_IMPRUMUT;
+    }
+
+    @Override
+    public double getPenalizare() {
+        return PENALIZARE;
+    }
+
 }

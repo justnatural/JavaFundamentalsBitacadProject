@@ -47,10 +47,27 @@ public class Biblioteca {
 
     }
 
+    //afișează lista tuturor publicațiilor care sunt dincategoria pasată ca parametru. Lista este precedată de eticheta „Publicatii din categoria X:”
     public void consultarePublicatieDupaCategorie(String categorie) {
+        System.out.println("Publicatii din categoria: "+ categorie);
+        for (Publicatie publicatie: publicatii) {
+            if(publicatie.getCategorie() == categorie) {
+                System.out.println(publicatie);
+            }
+
+        }
+
     }
 
+    //afișează lista tuturor publicațiilor care au autorul pasat ca parametru.Lista este precedată de eticheta „Publicatii scrise de X:”
     public void consultarePublicatieDupaAutor(String autor) {
+        System.out.println("Publicatii scrise de : "+ autor);
+        for (Publicatie publicatie: publicatii) {
+            if(publicatie.getAutor() == autor) {
+                System.out.println(publicatie);
+            }
+
+        }
     }
 
     public void imprumutaPublicatie(int id, LocalDate dataImprumut) {
@@ -71,22 +88,28 @@ public class Biblioteca {
             }
         }
         if (idExists == false) {
-            System.out.println("Publicatia " + id + " nu a fost gasita in evidentele bibliotecii");
+            System.out.println("Publicatia " + id + " nu se poate imprumuta pentru ca nu a fost gasita in evidentele bibliotecii");
         }
 
     }
 
     public void returneazaPublicatie(int id, LocalDate dataRetur) {
+        boolean idExists = false;
         for (Publicatie publicatie: publicatii) {
             if (id == publicatie.getId()) {
                 try {
                     publicatie.returneaza(dataRetur);
                     publicatiiImprumutate.remove(publicatie); // se scoate publicatia imprumutata din lista de publicatii imprumutate
                     System.out.println("Publicatia "+ id + " a fost returnata la data de " + dataRetur);
+                    idExists = true;
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
+                    idExists = true;
                 }
             }
+        }
+        if (idExists == false) {
+            System.out.println("Publicatia " + id + " nu se poate returna pentru ca nu a fost gasita in evidentele bibliotecii");
         }
     }
 

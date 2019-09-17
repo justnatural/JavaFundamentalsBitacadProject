@@ -31,13 +31,41 @@ public class Main {
         biblioteca.imprumutaPublicatie(10, data);
         biblioteca.publicatiiDisponibile();
 */
+/*
 
         //Caz4
         biblioteca.imprumutaPublicatie(3, LocalDate.of(2017, 12, 1));
         biblioteca.publicatiiImprumutate();
         biblioteca.returneazaPublicatie(3, LocalDate.of(2018, 2, 2));
 
+        biblioteca.returneazaPublicatie(10, LocalDate.of(2018, 2, 2));
+        biblioteca.imprumutaPublicatie(1, LocalDate.of(2017, 12, 1));
+        biblioteca.returneazaPublicatie(1, LocalDate.of(2018, 2, 2));
+*/
+/*
+
+        //Caz5
+        biblioteca.consultarePublicatieDupaCategorie(CategoriePublicatie.FICTIUNE);
+        biblioteca.imprumutaPublicatie(2, LocalDate.now());
+        biblioteca.imprumutaPublicatie(2, LocalDate.now());
+*/
+
+/*
+
+        //Caz6
+        biblioteca.consultarePublicatieDupaAutor("Neagu Djuvara");
+        biblioteca.imprumutaPublicatie(10, LocalDate.now());
+        biblioteca.returneazaPublicatie(11, LocalDate.now());
+*/
+
+        //Caz7
+        biblioteca.imprumutaPublicatie(1, LocalDate.of(2017,  12, 10));
+        biblioteca.returneazaPublicatie(1, LocalDate.of(2017, 1, 3));
+        biblioteca.imprumutaPublicatie(2, LocalDate.of(2018,  1, 1));
+
     }
+
+
 
     private static Biblioteca getBibliotecaPopulata() {
         Biblioteca biblioteca = new Biblioteca();
