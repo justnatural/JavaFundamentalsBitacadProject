@@ -5,7 +5,7 @@ public class AlbumMuzica extends Media {
     protected String titlu;
     protected String gen;
 
-    public AlbumMuzica(String suport, String artist, String titlu, String gen){
+    public AlbumMuzica(String suport, String artist, String titlu, String gen) {
         this.artist = artist;
         this.titlu = titlu;
         this.gen = gen;
@@ -13,7 +13,7 @@ public class AlbumMuzica extends Media {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
       /*
         StringBuilder sb = new StringBuilder();
         sb.append("artist : ").append(this.artist).append("\n");
@@ -21,13 +21,13 @@ public class AlbumMuzica extends Media {
         sb.append("gen : ").append(this.gen).append("\n");
         return sb.toString();
         */
-      if (getSuport() == "DVD") {
-          return getId()+". "+getSuport()+"      " + artist + "  " + titlu  ;
-      } else if (getSuport() == "HDDVD") {
-          return getId() + ". " + getSuport() + "    " + artist + "  " + titlu  ;
-      } else {
-          return getId()+". "+getSuport()+"  " + artist + "  " + titlu  ;
-      }
+        if (getSuport() == "DVD") {
+            return getId() + ". " + getSuport() + "      " + artist + "  " + titlu;
+        } else if (getSuport() == "HDDVD") {
+            return getId() + ". " + getSuport() + "    " + artist + "  " + titlu;
+        } else {
+            return getId() + ". " + getSuport() + "  " + artist + "  " + titlu;
+        }
 
 
     }

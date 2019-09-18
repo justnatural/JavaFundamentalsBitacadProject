@@ -1,23 +1,19 @@
 package com.bitacad.main;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-
 public class Carte extends Publicatie {
 
 
-    public static int TERMEN_IMPRUMUT =4;
-    public static double PENALIZARE =0.5;
+    public static int TERMEN_IMPRUMUT = 4;
+    public static double PENALIZARE = 0.5;
     protected int anPublicatie;
 
     public Carte(String autor, String titlu, int anPublicatie, String categorie) {
         this.autor = autor;
         this.titlu = titlu;
         this.anPublicatie = anPublicatie;
-        this.categorie=categorie;
+        this.categorie = categorie;
 
     }
-
 
 
     public String toString() {
@@ -31,7 +27,7 @@ public class Carte extends Publicatie {
         LocalDate anPublicatieFormatat = LocalDate.parse(anPublicatieString,
                 DateTimeFormatter.ofPattern("yyyy/MM/dd"));
         */
-        return getId()+". " + autor + " " + titlu + " " + anPublicatie + " " + categorie ;
+        return getId() + ". " + autor + " " + titlu + " " + anPublicatie + " " + categorie;
     }
 
     @Override

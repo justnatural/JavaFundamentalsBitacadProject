@@ -4,17 +4,17 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class Articol extends Publicatie {
-    public static int TERMEN_IMPRUMUT =2;
-    public static double PENALIZARE =0.1;
+    public static int TERMEN_IMPRUMUT = 2;
+    public static double PENALIZARE = 0.1;
     protected String publicatie;
     protected LocalDate dataPublicatiei;
 
     public Articol(String autor, String titlu, String categorie, String publicatie, LocalDate dataPublicatiei) {
         this.autor = autor;
-        this.titlu =titlu;
-        this.categorie=categorie;
-        this.publicatie=publicatie;
-        this.dataPublicatiei=dataPublicatiei;
+        this.titlu = titlu;
+        this.categorie = categorie;
+        this.publicatie = publicatie;
+        this.dataPublicatiei = dataPublicatiei;
     }
 
     public String toString() {
@@ -28,7 +28,7 @@ public class Articol extends Publicatie {
         String dataPublicatieiFormatata = formatter.format(dataPublicatiei);
 
 
-        return getId()+". " + autor + " " + titlu +  " " + publicatie + " " + dataPublicatieiFormatata  ;
+        return getId() + ". " + autor + " " + titlu + " " + publicatie + " " + dataPublicatieiFormatata;
     }
 
     @Override

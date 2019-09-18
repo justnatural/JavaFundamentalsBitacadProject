@@ -57,15 +57,15 @@ public class Main {
         biblioteca.imprumutaPublicatie(10, LocalDate.now());
         biblioteca.returneazaPublicatie(11, LocalDate.now());
 */
-/*
+
 
         //Caz7
-        biblioteca.imprumutaPublicatie(1, LocalDate.of(2017,  12, 10));
+        biblioteca.imprumutaPublicatie(1, LocalDate.of(2017, 12, 10));
         biblioteca.returneazaPublicatie(1, LocalDate.of(2017, 1, 3));
-        biblioteca.imprumutaPublicatie(2, LocalDate.of(2018,  1, 1));
+        biblioteca.imprumutaPublicatie(2, LocalDate.of(2018, 1, 1));
         biblioteca.returneazaPublicatie(2, LocalDate.of(2018, 3, 1));
-*/
 
+/*
         //Caz8
         biblioteca.catalogMedia();
         biblioteca.consultaMedia(10);
@@ -80,9 +80,8 @@ public class Main {
         biblioteca.elibereazaMedia(15);
         biblioteca.consultaMedia(16);
         biblioteca.elibereazaMedia(16);
+        */
     }
-
-
 
 
     private static Biblioteca getBibliotecaPopulata() {

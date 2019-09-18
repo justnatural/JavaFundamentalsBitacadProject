@@ -27,8 +27,8 @@ public class Film extends Media {
         */
       if (getSuport() == "DVD") {
           return getId()+". " +getSuport()+"      "+ titlu +"  "+ an + "  " + gen + "  " + regizor ;
-      } else if (getSuport() == "HDDVD"){
-          return getId()+". " +getSuport()+"    "+ titlu +"  "+ an + "  " + gen + "  " + regizor ;
+      } else if (getSuport() == "HDDVD") {
+          return getId() + ". " + getSuport() + "    " + titlu + "  " + an + "  " + gen + "  " + regizor;
       } else {
           return getId()+". " +getSuport()+"  "+ titlu +"  "+ an + "  " + gen + "  " + regizor ;
       }
