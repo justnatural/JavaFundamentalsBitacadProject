@@ -36,12 +36,12 @@ public class Carte extends Publicatie {
 
     @Override
     public int getTermenImprumut() {
-        return TERMEN_IMPRUMUT;
+        return this.TERMEN_IMPRUMUT;
     }
 
     @Override
     public double getPenalizare() {
-        return PENALIZARE;
+        return this.PENALIZARE;
     }
 
 }

@@ -30,6 +30,8 @@ public abstract class Publicatie extends Item implements Imprumutabil {
         if (disponibil==false) {
             disponibil=true;
             this.dataRetur = dataRetur;
+            //System.out.println(ChronoUnit.DAYS.between(dataImprumut, dataRetur));
+            //System.out.println(getTermenImprumut());
             //dataImprumut+ TERMEN_IMPRUMUTsăptămâni < dataRetur
             if(ChronoUnit.DAYS.between(dataImprumut, dataRetur) > (getTermenImprumut()*7)) {
                 System.out.println("Termen de returnare depășit cu "+(ChronoUnit.DAYS.between(dataImprumut, dataRetur) - (getTermenImprumut()*7))+ " zile pentru publicatia " +getId());
